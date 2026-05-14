@@ -1,5 +1,5 @@
 INICIO
-// ETAPA 1: PREPARAÇÃO DOS DADOS DE ENTRADA
+// ETAPA 1: PREPARAÇÃO DOS DADOS DE ENTRADA - CRIAÇÃO DO MODELO DIGITAL DE SUPERFÍCIE
 	Ler os arquivos de nuvens de ponto (X, Y, Z)
 	Definir o tamanho do grid (célula/pixel) utilizado na conversão de dimensões (verificar densidade de pontos da nuvem)
 	Calcular a extensão da imagem (coluna, linha) com base na nuvem de pontos (X, Y) e sua amplitude útil
@@ -7,10 +7,17 @@ INICIO
 	Se dois pontos cairem no mesmo pixel, manter aquele com maior valor em Z
 	Inverter o eixo Y
 	Interpolar valores da vizinhança para células vazias
+	Converter a imagem para 16 bits (maior resolução radiométrica)
+	Salvar o resultado no formato .TIF e .PNG
+	Visualizar a comparação da rasterização em escala de cinza e colorida
 	
-// ETAPA 2: PREPARAR O ALGORITMO PARA RECEBER OS DADOS TRATADOS
-	Inverter matemática do modelo criado (topos de árvores como fundos de vales)
-	Inserir as coordenadas do centroide como marcadores
-	
+// ETAPA 2: GERAÇÃO DA IMAGEM COM MARCADORES
+	Ler a nuvem de pontos original
+	Identificar mínimos e máximos
+	Criação de uma "imagem fantasma" vazia com a mesma dimensão (linhas e colunas) do modelo 3D utilizando o tamanho de pixel definido
+	Ler arquivo (.txt) com as coordenadas de terreno (X, Y) dos centróides das copas
+	Converter as coordenadas de terreno (X,Y) em coordenadas de imagem (coluna, linha) usando a mesma origem e resolução da Etapa 1
+	Inserir um "pingo" (um ID único: 1, 2, 3...) na imagem fantasma nessa posição exata
+	Exportar o resultado (arquivo dos marcadores em formato de matriz .npy)
 
 	
