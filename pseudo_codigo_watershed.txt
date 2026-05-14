@@ -1,0 +1,16 @@
+INICIO
+// ETAPA 1: PREPARAÇÃO DOS DADOS DE ENTRADA
+	Ler os arquivos de nuvens de ponto (X, Y, Z)
+	Definir o tamanho do grid (célula/pixel) utilizado na conversão de dimensões (verificar densidade de pontos da nuvem)
+	Calcular a extensão da imagem (coluna, linha) com base na nuvem de pontos (X, Y) e sua amplitude útil
+	Criar uma matriz vazia com a dimensão calculada anteriormente e preencher com os valores da componente Z no lugar do ND de cada posição (coluna, linha)
+	Se dois pontos cairem no mesmo pixel, manter aquele com maior valor em Z
+	Inverter o eixo Y
+	Interpolar valores da vizinhança para células vazias
+	
+// ETAPA 2: PREPARAR O ALGORITMO PARA RECEBER OS DADOS TRATADOS
+	Inverter matemática do modelo criado (topos de árvores como fundos de vales)
+	Inserir as coordenadas do centroide como marcadores
+	
+
+	
